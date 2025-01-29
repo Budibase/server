@@ -237,6 +237,7 @@ export default class TestConfiguration {
     if (!this) {
       return
     }
+
     if (this.server) {
       this.server.close()
     } else {
@@ -257,7 +258,7 @@ export default class TestConfiguration {
     }
   }
 
-  async withApp(app: App | string, f: () => Promise<void>) {
+  async withApp<R>(app: App | string, f: () => Promise<R>) {
     const oldAppId = this.appId
     this.appId = typeof app === "string" ? app : app.appId
     try {
@@ -265,6 +266,10 @@ export default class TestConfiguration {
     } finally {
       this.appId = oldAppId
     }
+  }
+
+  async withProdApp<R>(f: () => Promise<R>) {
+    return await this.withApp(this.getProdAppId(), f)
   }
 
   // UTILS
@@ -620,7 +625,7 @@ export default class TestConfiguration {
   }
 
   async unpublish() {
-    const response = await this._req(appController.unpublish, {
+    const response = await this._req(appController.unpublish, undefined, {
       appId: this.appId,
     })
     this.prodAppId = undefined
