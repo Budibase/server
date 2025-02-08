@@ -124,6 +124,8 @@ export const createAPIClient = (config: APIClientConfig = {}): APIClient => {
     headers[Header.SESSION_ID] = APISessionID
     if (!external) {
       headers[Header.API_VER] = ApiVersion
+    } else {
+      headers["x-ms-blob-type"] = "BlockBlob"
     }
     if (json) {
       headers["Content-Type"] = "application/json"

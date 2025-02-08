@@ -51,6 +51,7 @@
   "dependencies": {
     "@apidevtools/swagger-parser": "10.0.3",
     "@azure/msal-node": "^2.5.1",
+    "@azure/storage-blob": "^12.17.0",
     "@budibase/backend-core": "*",
     "@budibase/client": "*",
     "@budibase/frontend-core": "*",

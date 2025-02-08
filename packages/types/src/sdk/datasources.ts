@@ -54,6 +54,7 @@ export enum SourceName {
   COUCHDB = "COUCHDB",
   SQL_SERVER = "SQL_SERVER",
   S3 = "S3",
+  AZURE = "AZURE",
   AIRTABLE = "AIRTABLE",
   MYSQL = "MYSQL",
   ARANGODB = "ARANGODB",

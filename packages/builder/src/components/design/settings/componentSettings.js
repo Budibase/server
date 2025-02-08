@@ -2,7 +2,7 @@ import { Checkbox, Select, RadioGroup, Stepper, Input } from "@budibase/bbui"
 import { licensing } from "@/stores/portal"
 import { get } from "svelte/store"
 import DataSourceSelect from "./controls/DataSourceSelect/DataSourceSelect.svelte"
-import S3DataSourceSelect from "./controls/S3DataSourceSelect.svelte"
+import ObjectStoreSelect from "./controls/ObjectStoreSelect.svelte"
 import DataProviderSelect from "./controls/DataProviderSelect.svelte"
 import ButtonActionEditor from "./controls/ButtonActionEditor/ButtonActionEditor.svelte"
 import TableSelect from "./controls/TableSelect.svelte"
@@ -38,7 +38,7 @@ const componentMap = {
   select: Select,
   radio: RadioGroup,
   dataSource: DataSourceSelect,
-  "dataSource/s3": S3DataSourceSelect,
+  "dataSource/objectStore": ObjectStoreSelect,
   dataProvider: DataProviderSelect,
   boolean: Checkbox,
   number: Stepper,
@@ -72,6 +72,7 @@ const componentMap = {
   "field/longform": FormFieldSelect,
   "field/datetime": FormFieldSelect,
   "field/attachment": FormFieldSelect,
+  "field/upload": Input,
   "field/attachment_single": FormFieldSelect,
   "field/s3": Input,
   "field/link": FormFieldSelect,
